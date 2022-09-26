@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>0x.Day Subscribe</title>
+    <link rel="icon" type="text/png" href="../logo.png">
+    <meta name="description" content="0x.Day - An Opensource Dev Day " />
+    <meta name="robots" content="index,follow">
+    <meta name="keywords"
+        content="coding,bootcamp,computer science, i.camp,icamp,advanced coding bootcamp, system design, rpa, javascript" />
+
+    <meta property="og:title" content="0x.Day - An Opensource Dev Day " />
+    <meta property="og:description" content="0x.Day - An Opensource Dev Day " />
+    <meta property="og:image" content="logo.png" />
+
+    <link rel="canonical" href="https://i.camp">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.0.0-alpha.1/axios.min.js"
+        integrity="sha512-xIPqqrfvUAc/Cspuj7Bq0UtHNo/5qkdyngx6Vwt+tmbvTLDszzXM0G6c91LXmGrRx8KEPulT+AfOOez+TeVylg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+
+<body>
+    <div class="subscribe-card">
+        <div style="margin-bottom : 5%;">
+            <h2 class="title">0x.Day </h2>
+        </div>
+        <form action="#" onsubmit="return false" class="subscribe-form"> <label for="email" class="input-holder"> <input
+                    type="email" name="email" id="email" class="email input"
+                    placeholder="We ll ping you. Email Please ?" autocomplete="off"> </label>
+            <div class="options"> <label for="program"> <span class="checkbox-holder"> <input type="checkbox"
+                            name="program" id="program" class="checkbox" checked> <span> <svg
+                                xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-check" viewBox="0 0 16 16">
+                                <path
+                                    d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z" />
+                            </svg> </span> </span> <span class="checkbox-text">Program Updates</span> </label> <label
+                    for="newsletter"> <span class="checkbox-holder"> <input type="checkbox" name="newsletter"
+                            id="newsletter" class="checkbox"> <span> <svg xmlns="http://www.w3.org/2000/svg" width="16"
+                                height="16" fill="currentColor" class="bi bi-check" viewBox="0 0 16 16">
+                                <path
+                                    d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z" />
+                            </svg> </span> </span> <span class="checkbox-text"> 0x.Day Newsletter</span> </label> <label
+                    for="whitepaper"> <span class="checkbox-holder"> <input type="checkbox" name="whitepaper"
+                            id="whitepaper" class="checkbox"> <span> <svg xmlns="http://www.w3.org/2000/svg" width="16"
+                                height="16" fill="currentColor" class="bi bi-check" viewBox="0 0 16 16">
+                                <path
+                                    d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z" />
+                            </svg> </span> </span> <span class="checkbox-text">WhitePaper Release </span> </label>
+                <label for="0xday"> <span class="checkbox-holder"> <input type="checkbox" name="0xday" id="0xday"
+                            class="checkbox"> <span> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                fill="currentColor" class="bi bi-check" viewBox="0 0 16 16">
+                                <path
+                                    d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z" />
+                            </svg> </span> </span> <span class="checkbox-text">0x.Day Launch </span> </label>
+            </div>
+            <button type="submit" class="submit-btn" onclick="hitAPI()"> Submit </button>
+        </form>
+    </div>
+</body>
+<script>async function hitAPI() { try { let email = document.getElementById("email").value; let program = document.getElementById("program").checked; let newsletter = document.getElementById("newsletter").checked; let whitepaper = document.getElementById("newsletter").checked; let zeroxday = document.getElementById("0xday").checked; let finalData = { email, program, newsletter, whitepaper, zeroxday }; if (!(/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email))) { return alert("Please Provide Valid Email Address"); } const res = await axios.post("https://api.i.camp/0xday", finalData); alert(res.data.success); window.location = "/"; } catch (error) { alert(error.response.data); } }</script>
+
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>0x.Day</title>
+    <link rel="icon" type="text/png" href="logo.png">
+    <meta name="description" content="0x.Day - An Opensource Dev Day " />
+    <meta name="robots" content="index,follow">
+    <meta name="keywords"
+        content="coding,bootcamp,computer science, i.camp,icamp,advanced coding bootcamp, system design, rpa, javascript, 0xday" />
+
+    <meta property="og:title" content="0x.Day - An Opensource Dev Day " />
+    <meta property="og:description" content="0x.Day - An Opensource Dev Day " />
+    <meta property="og:image" content="logo.png" />
+    <link rel="canonical" href="https://i.camp">
+    <link rel="stylesheet" href="styles.css">
+   
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <div>
+        <h1>
+            <span>0</span>
+            <span>x</span>
+            <span>.</span>
+            <span>D</span>
+            <span>a</span>
+            <span>y</span>
+        </h1>
+        <center>
+            <div>
+                <p id="demo"></p>
+                <a href="/subscribe" class="button">Subscribe</a>
+            </div>
+            <div>
+                <ul>
+                    <li> <a href="https://www.instagram.com/0x.day/" target="_blank"><i
+                                class="fa wp-icon fa-instagram fa-lg"></i></a></li>
+                    <li><a href="https://twitter.com/_0xDay/" target="_blank"><i
+                                class="fa wp-icon fa-twitter fa-lg"></i></a></li>
+                    <li> <a href="https://www.linkedin.com/company/0xday/" target="_blank"><i
+                                class="fa wp-icon fa-linkedin fa-lg"></i></a></li>
+                    <li> <a href="https://www.facebook.com/0xDayy/" target="_blank"><i
+                                class="fa wp-icon fa-facebook-f fa-lg"></i></a></li>
+                </ul>
+            </div>
+        </center>
+    </div>
+
+</body>
+<script src="/script.js"></script>
+<script>console.log("Hi There! We are in rush too. Wait for 'http://0x.Day'")</script>
+<script>var countDownDate = new Date("Dec 30, 2022 11:00:00").getTime(); var x = setInterval(function () { var now = new Date().getTime(); var distance = countDownDate - now; var days = Math.floor(distance / (1000 * 60 * 60 * 24)); var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)); var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)); var seconds = Math.floor((distance % (1000 * 60)) / 1000); document.getElementById("demo").innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s"; if (distance < 0) { clearInterval(x); document.getElementById("demo").innerHTML = "EXPIRED"; } }, 1);</script>
+<script>var stringRandom = (function () { var data = { isScrolling: false, repeat: 0, target: [], letters: '*+-/@_$[%£!XO1&>', originalStrings: '', singleLetters: [] }; Array.prototype.shuffle = function () { var input = this; for (var i = input.length - 1; i >= 0; i--) { var randomIndex = Math.floor(Math.random() * (i + 1)); var itemAtIndex = input[randomIndex]; input[randomIndex] = input[i]; input[i] = itemAtIndex; } return input; }; function checkLength(x) { return Array.from(document.querySelectorAll(x)).length > 0; }; function addListener(evt, fx) { window.addEventListener(evt, fx); } function changeLetter(letter) { if (letter.textContent != ' ') { letter.classList.add('is-changing'); letter.style.animationDuration = Math.random().toFixed(2) + 's'; var newChar = data.letters.substr(Math.random() * data.letters.length, 1); letter.textContent = newChar; letter.setAttribute('data-txt', newChar); } } function resetLetter(letter, value) { letter.classList.remove('is-changing'); letter.textContent = value; letter.setAttribute('data-txt', value); } function divideLetters() { data.target.forEach((element, index) => { var text = element.textContent; var textDivided = ''; data.originalStrings = text; for (var i = 0; i < text.length; i++) { textDivided += `<span class="el-sp el-st-${index}-span-${i}" data-txt="${text.substr(i, 1)}">${text.substr(i, 1)}</span>`; } element.innerHTML = textDivided; }); data.singleLetters = document.querySelectorAll('.el-sp'); } function changeLetters() { if (data.isScrolling) { data.singleLetters.forEach(function (el, index) { changeLetter(el); }); } setTimeout(changeLetters, 10); } function resetLetters() { var randomArray = []; for (var i = 0; i < data.singleLetters.length; i++) { randomArray.push(i); } randomArray.shuffle(); randomArray.forEach(function (el, index) { setTimeout(function () { resetLetter(data.singleLetters[el], data.originalStrings.substring(el, el + 1)); }, (index * 20 * (Math.random() * 5))).toFixed(2); }); } function updateScrollState() { clearTimeout(delay); data.isScrolling = true; var delay = setTimeout(function () { data.isScrolling = false; resetLetters(); }, 300); }; return { init: function (selector) { if (checkLength(selector)) { data.target = Array.from(document.querySelectorAll(selector)); divideLetters(); changeLetters(); addListener('scroll', updateScrollState); } } } })(); stringRandom.init('.el-st');</script>
+
+</html>
